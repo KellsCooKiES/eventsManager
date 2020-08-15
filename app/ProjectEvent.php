@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectEvent extends Model
 {
+    protected $guarded = [];
     public function responsible()
     {
         return $this->belongsTo(User::class);

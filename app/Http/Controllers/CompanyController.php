@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $companies = Company::all();
@@ -26,7 +31,7 @@ class CompanyController extends Controller
            'name' => $request->input('name')
         ]);
 
-      return redirect('company');
+      return redirect('companies');
     }
 
     public function edit($id)
@@ -43,6 +48,13 @@ class CompanyController extends Controller
         $company= Company::find($id);
         $company->name = \request('name');
         $company->save();
-        return redirect('company');
+        return redirect('companies');
+    }
+
+    public function destroy($id)
+    {
+        Company::destroy($id);
+
+        return redirect('companies');
     }
 }

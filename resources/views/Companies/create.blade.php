@@ -8,7 +8,7 @@
                     <div class="card-header">Добавление компании</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/company/store">
+                        <form method="POST" action="/companies/store">
                             @csrf
 
                             <div class="form-group">
