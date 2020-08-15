@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/company','CompanyController@index');
+Route::get('/company/create','CompanyController@create');
+Route::post('/company/store','CompanyController@store');
+Route::get('/company/edit/{id}','CompanyController@edit');
+Route::put('/company/{id}','CompanyController@update');
